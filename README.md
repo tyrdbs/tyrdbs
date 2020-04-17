@@ -80,29 +80,31 @@ number of micro-shards is theoretically limited to 2^32 but practical
 limitations restrict this number to a smaller value. Commonly seen numbers are
 16k, 32k and 64k. A single micro-shard from all collections is kept at a single
 data node which forms a non-divisible data unit. Multiple micro-shards can be
-contained within a single data_node. Having a large number of micro-shards helps
-with the ability to distribute easily across data nodes and keep a single micro-
-shard's size relatively small which allows various maintenance processes -- like
-merging -- to have relatively low impact on concurrent readers and writers.
+contained within a single data node. Having a large number of micro-shards helps
+with the ability to distribute data easily across data nodes and keep a single
+micro-shard's size relatively small which allows various maintenance processes
+-- like merging -- to have relatively low impact on concurrent readers and
+writers.
 
-Micro-shard, on the other hand, consists of a tiered lists of slices which form
-a LSM tree like structure. Slice is a container holding key-value pairs. In its
-current form, slice is a variation of B+ tree extended to to allow for fast key
-existence testing for both point and range queries. Nodes within the tree are
-compressed using the L4Z algorithm. Each slice is created by either merging of
-slices form a specific tier or by a direct data stream which constitutes an
-update to the collection's micro-shard. Slice's tier is determined by the number
-of key-value pairs it holds after it has been fully written to. Slices are
-write-once structures and, in effect, keys are never updated directly but rather
+Micro-shard consists of a tiered lists of slices which form a LSM tree like
+structure. Slice is a container holding key-value pairs. In its current form,
+slice is a variation of B+ tree extended to to allow for fast key existence
+testing for both point and range queries. Nodes within the tree are compressed
+using the L4Z algorithm. Each slice is created by either merging of slices form
+a specific tier or by a direct data stream which constitutes an update to the
+collection's micro-shard. Slice's tier is determined by the number of key-value
+pairs it holds after it has been fully written to. Slices are write-once
+structures and, in effect, keys are never updated directly but rather
 overwritten by keys in a newer slice. Determining which key is newer is done
 with the help from an index counter which is kept per collection's micro-shard.
 At this moment, keys are limited to 1024 bytes while values it can hold are not
-limited at all. To allow for low memory footprint, values are split internally
-based on available node space at the moment they are written. Reconstruction
-happens client side, if needed so reading keys from tyrdbs is more like fetching
-a stream than fetching key-value pairs. This allows a high degree of flexibility
-to the user as to how to handle its data. Within a collection, keys can have
-variable sizes and are sorted using naturally byte string orderings.
+limited at all. To allow for low memory overhead while handling values, values
+are split internally based on available node space at the moment they are
+written. Reconstruction happens client side, if needed, so reading keys from
+tyrdbs is more like fetching a stream than fetching key-value pairs. This allows
+a high degree of flexibility to the user as to how to handle its data. Within a
+collection, keys can have variable sizes and are sorted using naturally byte
+string orderings.
 
 Having many micro-shards within a single process where every micro-shard has
 many slices, results in having millions of slices. Having milion of slices
@@ -123,20 +125,20 @@ There are three layers of caching:
 3. node-level cache - holds decompressed nodes.
 
 Replacement algorithm used is wTinyLFU which utilizes statistical tracking of
-many more items than other algorithms which allows for much better predictions
-on what data is going to be needed in the future. 
+many more items than other algorithms are capable of which allows for much
+better predictions on what data is going to be needed in the future. 
 
 Databases in general are IO and network bound. This translates to making many
 system calls which translates to making many contexts switches. Context switches
 are expensive, especially since side-channel attack mitigations were put in
 place. Luckly, a new interface in Linux kernel called io_uring was added which
 allows for system call batching and asynchronous IO. This created an opportunity
-to go a step further and eliminate multithreading and reducing the need for
+to go a step further and eliminate multithreading thus reducing the need for
 context switches even more. tyrdbs makes heavy use of a concept called
 cooperative multithreading which means that every time a thread has to do some
 sort of IO, it tells the system what to do and relinquishes control of the
 processor to another thread. For database workloads, this is a perfect fit.
-Because of this, tyrdbs works only on x86_64 systems for now.
+For now, tyrdbs works only on x86_64 systems.
 
 Status
 ====
@@ -149,10 +151,10 @@ optimizations. Things may or may not work as intended.
 Contribution
 ====
 
-If you'd like to contribute, We'll gladly accept PRs, ideas, critiques or
+If you'd like to contribute, we'll gladly accept PRs, ideas, critiques or
 whatever else you can spare :) As mentioned in the [Status](#Status)
 section, there's much to do. Most notably, networking protocol is basically
-non-existent at the moment. As is transaction log.
+non-existent at the moment. As is transaction log. The list goes on.
 
 License
 ====
@@ -221,4 +223,4 @@ Thank you
 ====
 
 Special thanks needs to go to Jens Axboe and the team on io-uring mailing list
-for making this possible!
+for making all of this possible!
