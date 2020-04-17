@@ -1,0 +1,24 @@
+{
+    "tyrtech":
+    {
+        "test_struct1":
+        {
+            "a": ["string"]
+        },
+        "test_struct2":
+        {
+            "a": "uint16",
+            "b": "string",
+            "c": ["test_struct1"]
+        },
+        "test_struct3":
+        {
+            "a": "int32",
+            "b": "string",
+            "c": "test_struct3",
+            "d": ["test_struct2"],
+            "e": ["string"],
+            "f": ["int32"]
+        }
+    }
+}

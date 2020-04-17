@@ -1,0 +1,17 @@
+Import('env')
+Import('BUILD_DIR')
+
+
+tyrdbs_sources = [
+    'node.cpp',
+    'node_writer.cpp',
+    'cache.cpp',
+    'slice.cpp',
+    'slice_writer.cpp',
+    'collection.cpp',
+    'key_buffer.cpp',
+    'location.cpp',
+    'ushard.cpp'
+]
+
+env.StaticLibrary(target='{0}/tyrdbs'.format(BUILD_DIR), source=tyrdbs_sources)

@@ -1,0 +1,122 @@
+Import('env')
+
+
+default_libs = [
+    'tyrdbs',
+    'storage',
+    'net',
+    'io',
+    'gt',
+    'common',
+    'extern',
+    'uring',
+    'uuid'
+]
+
+
+env.Program(
+    target='generate_data',
+    source=['generate_data.cpp'],
+    LIBS=default_libs
+)
+
+env.Program(
+    target='ushard_test',
+    source=['ushard_test.cpp'],
+    LIBS=default_libs
+)
+
+env.Program(
+    target='msg_test',
+    source=['msg_test.cpp'],
+    LIBS=default_libs
+)
+
+env.Program(
+    target='slab_test',
+    source=['slab_test.cpp'],
+    LIBS=default_libs
+)
+
+env.Program(
+    target='allocator_test',
+    source=['allocator_test.cpp'],
+    LIBS=default_libs
+)
+
+env.Program(
+    target='read_test',
+    source=['read_test.cpp'],
+    LIBS=default_libs
+)
+
+env.Program(
+    target='collection_test',
+    source=['collection_test.cpp'],
+    LIBS=default_libs
+)
+
+env.Program(
+    target='server_test',
+    source=['server_test.cpp'],
+    LIBS=default_libs
+)
+
+env.Program(
+    target='ping_server',
+    source=['ping_server.cpp'],
+    LIBS=default_libs
+)
+
+env.Program(
+    target='ping_client',
+    source=['ping_client.cpp'],
+    LIBS=default_libs
+)
+
+env.Program(
+    target='dtrace_test',
+    source=['dtrace_test.cpp'],
+    LIBS=default_libs
+)
+
+env.Program(
+    target='db_server',
+    source=['db_server.cpp'],
+    LIBS=default_libs
+)
+
+env.Program(
+    target='db_update_client_seq',
+    source=['db_update_client_seq.cpp'],
+    LIBS=default_libs
+)
+
+env.Program(
+    target='db_fetch_client_seq',
+    source=['db_fetch_client_seq.cpp'],
+    LIBS=default_libs
+)
+
+env.Program(
+    target='db_update_client_rnd',
+    source=['db_update_client_rnd.cpp'],
+    LIBS=default_libs
+)
+
+env.Program(
+    target='db_fetch_client_rnd',
+    source=['db_fetch_client_rnd.cpp'],
+    LIBS=default_libs
+)
+
+env.Program(
+    target='db_dump',
+    source=['db_dump.cpp'],
+    LIBS=default_libs
+)
+
+scripts = [
+]
+
+env.SConscript(scripts, must_exist=1)

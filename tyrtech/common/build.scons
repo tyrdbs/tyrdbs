@@ -1,0 +1,18 @@
+Import('env')
+Import('BUILD_DIR')
+
+
+common_sources = [
+    'aligned_buffer.cpp',
+    'allocator.cpp',
+    'clock.cpp',
+    'cmd_line.cpp',
+    'conv.cpp',
+    'cpu_sched.cpp',
+    'dynamic_buffer.cpp',
+    'logger.cpp',
+    'system_error.cpp',
+    'uuid.cpp'
+]
+
+env.StaticLibrary(target='{0}/common'.format(BUILD_DIR), source=common_sources)

@@ -1,0 +1,20 @@
+{
+    "tests":
+    {
+        "dtrace_test":
+        {
+            "test1":
+            {
+                "arg1": "uint64_t",
+                "arg2": "int32_t",
+                "arg3": "int32_t",
+                "arg4": "const char*"
+            },
+            "test2":
+            {
+                "duration": "uint64_t",
+                "arg1": "int32_t"
+            }
+        }
+    }
+}

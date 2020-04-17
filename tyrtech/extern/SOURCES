@@ -1,0 +1,35 @@
+fmt:
+	- https://github.com/fmtlib/fmt
+
+lz4:
+	- https://github.com/lz4/lz4
+
+crc32c:
+	- https://stackoverflow.com/questions/17645167/implementing-sse-4-2s-crc32c-in-software?answertab=active#tab-top
+
+wtinylfu:
+	ttps://arxiv.org/pdf/1512.00727.pdf
+	ttp://dimacs.rutgers.edu/~graham/pubs/papers/cm-full.pdf
+	ttps://github.com/ben-manes/caffeine/blob/master/caffeine/src/main/java/com/github/benmanes/caffeine/cache/FrequencySketch.java
+
+boost's hash_combine:
+	ttps://www.boost.org/doc/libs/1_55_0/doc/html/hash/reference.html#boost.hash_combine
+
+argtable3:
+	ttps://www.argtable.org/
+	https://github.com/argtable/argtable3
+
+doctest:
+	https://github.com/onqtam/doctest
+
+json:
+	https://github.com/nlohmann/json
+
+tdigest:
+	https://github.com/ajwerner/tdigestc
+
+rpmalloc:
+	https://github.com/mjansson/rpmalloc
+
+gtswitch:
+	https://github.com/dan-f/c-green-threads

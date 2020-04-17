@@ -1,0 +1,12 @@
+Import('env')
+Import('BUILD_DIR')
+
+
+gt_sources = [
+    'async.cpp',
+    'condition.cpp',
+    'engine.cpp',
+    'mutex.cpp'
+]
+
+env.StaticLibrary(target='{0}/gt'.format(BUILD_DIR), source=gt_sources)

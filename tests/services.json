@@ -1,0 +1,14 @@
+{
+    "includes":
+    [
+	"tests/modules.json.h"
+    ],
+    "tests":
+    {
+        "service1":
+        [
+            "module1",
+            "module2"
+        ]
+    }
+}

@@ -1,0 +1,31 @@
+import os
+
+
+PROJECT='tyrdbs'
+Export('PROJECT')
+
+VERSION='0.1.0-{0}'.format(os.popen('git log -1 --pretty=format:%h').read())
+Export('VERSION')
+
+PROJECT_DIR=os.getcwd()
+Export('PROJECT_DIR')
+
+BUILD_DIR='{0}/build'.format(PROJECT_DIR)
+Export('BUILD_DIR')
+
+
+vars = Variables()
+vars.Add(BoolVariable('debug', 'set to build debugging version', 0))
+vars.Add(BoolVariable('profile', 'set to build profiling version', 0))
+vars.Add(BoolVariable('asserts', 'clear to remove asserts', 1))
+vars.Add(BoolVariable('verbose', 'be verbose while compiling', 0))
+
+
+env = Environment(ENV=os.environ, variables=vars)
+Export('env')
+
+
+env.Decider('timestamp-match')
+
+
+SConscript('build.scons', variant_dir=BUILD_DIR, duplicate=0)

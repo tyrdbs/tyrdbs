@@ -1,0 +1,52 @@
+Import('env')
+
+
+env['CC'] = 'clang'
+env['CXX'] = 'clang++'
+env['AS'] = 'clang'
+env['LINK'] = 'clang++'
+
+env['CCFLAGS'] = '-Wall -pedantic -Wno-unused-function -Wno-gnu-statement-expression'
+env['CXXFLAGS'] = '-std=c++17'
+env['ASFLAGS'] = '-c'
+env['LINKFLAGS'] = '-pthread -ldl'
+
+env.Append(CPPPATH='#')
+
+
+if env['profile']:
+    env.Append(CCFLAGS=' -pg')
+    env.Append(LINKFLAGS=' -pg')
+
+if env['debug']:
+    env.Append(CCFLAGS=' -O0 -g -fno-limit-debug-info')
+    env.Append(CPPDEFINES='DEBUG')
+
+else:
+    env.Append(CCFLAGS=' -O3')
+
+    if not env['profile']:
+        env.Append(CCFLAGS=' -fomit-frame-pointer')
+        env.Append(LINKFLAGS=' -s')
+
+    else:
+        env.Append(CCFLAGS=' -g')
+
+    if not env['asserts']:
+        env.Append(CPPDEFINES='NDEBUG')
+
+if not env['verbose']:
+    env['ASCOMSTR'] =  "AS     $TARGET"
+    env['CXXCOMSTR'] = "CXX    $TARGET"
+    env['CCCOMSTR'] =  "CC     $TARGET"
+    env['ARCOMSTR'] =  "AR     $TARGET"
+    env['RANLIBCOMSTR'] = "RANLIB $TARGET"
+    env['LINKCOMSTR'] = "LINK   $TARGET"
+
+
+scripts = [
+    'tyrtech/build.scons',
+    'tests/build.scons'
+]
+
+env.SConscript(scripts, must_exist=1)

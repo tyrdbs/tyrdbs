@@ -1,0 +1,13 @@
+{
+    "includes":
+    [
+        "tests/db_server_module.json.h"
+    ],
+    "tests":
+    {
+        "db_server_service":
+        [
+            "collections"
+        ]
+    }
+}

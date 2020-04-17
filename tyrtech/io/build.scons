@@ -1,0 +1,18 @@
+Import('env')
+Import('BUILD_DIR')
+
+
+io_sources = [
+    'channel.cpp',
+    'channel_reader.cpp',
+    'channel_writer.cpp',
+    'tcp_channel.cpp',
+    'unix_channel.cpp',
+    'file.cpp',
+    'file_writer.cpp',
+    'io_uring.cpp',
+    'queue_flow.cpp',
+    'uri.cpp'
+]
+
+env.StaticLibrary(target='{0}/io'.format(BUILD_DIR), source=io_sources)

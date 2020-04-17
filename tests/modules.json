@@ -1,0 +1,81 @@
+{
+    "tests":
+    {
+	"module1":
+	{
+	    "id": 1234,
+	    "exceptions":
+	    [
+		"test1_error",
+		"test2_error",
+		"test3_error"
+	    ],
+	    "func1":
+	    {
+		"id": 1,
+		"request":
+		{
+		    "param1": "int32",
+		    "param2": "string"
+		},
+		"response":
+		{
+		    "param1": "int32",
+		    "param2": "string"
+		}
+	    },
+	    "func2":
+	    {
+		"id": 2,
+		"request":
+		{
+		    "param1": "int32",
+		    "param2": "string"
+		},
+		"response":
+		{
+		    "param1": "int32",
+		    "param2": "string"
+		}
+	    }
+	},
+	"module2":
+	{
+	    "id": 1235,
+	    "exceptions":
+	    [
+		"test1_error",
+		"test2_error",
+		"test3_error"
+	    ],
+	    "func1":
+	    {
+		"id": 1,
+		"request":
+		{
+		    "param1": "int32",
+		    "param2": "string"
+		},
+		"response":
+		{
+		    "param1": "int32",
+		    "param2": "string"
+		}
+	    },
+	    "func2":
+	    {
+		"id": 2,
+		"request":
+		{
+		    "param1": "int32",
+		    "param2": "string"
+		},
+		"response":
+		{
+		    "param1": "int32",
+		    "param2": "string"
+		}
+	    }
+	}
+    }
+}

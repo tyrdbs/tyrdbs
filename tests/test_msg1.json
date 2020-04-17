@@ -1,0 +1,17 @@
+{
+    "tyrtech":
+    {
+        "test_struct1":
+        {
+            "param1": "int32",
+            "param2": "string"
+        },
+        "test_struct":
+        {
+            "param1": "int32",
+            "param2": "string",
+            "param3": "test_struct1",
+            "param4": ["test_struct1"]
+        }
+    }
+}

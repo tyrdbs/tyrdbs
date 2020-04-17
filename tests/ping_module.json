@@ -1,0 +1,22 @@
+{
+    "tests":
+    {
+        "ping":
+        {
+            "id": 1,
+            "exceptions": [],
+            "ping":
+            {
+                "id": 1,
+                "request":
+                {
+                    "sequence": "uint64"
+                },
+                "response":
+                {
+                    "sequence": "uint64"
+                }
+            }
+        }
+    }
+}

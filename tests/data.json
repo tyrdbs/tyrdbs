@@ -1,0 +1,22 @@
+{
+    "tests":
+    {
+        "entry":
+        {
+            "flags": "uint8#",
+            "ushard": "uint32",
+            "key": "string",
+            "value": "string"
+        },
+        "collection":
+        {
+            "name": "string",
+            "entries": ["entry"]
+        },
+        "data":
+        {
+            "flags": "uint8#",
+            "collections": ["collection"]
+        }
+    }
+}

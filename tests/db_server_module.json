@@ -1,0 +1,85 @@
+{
+    "tests":
+    {
+        "collections":
+        {
+            "id": 1,
+            "exceptions": [],
+            "update_data":
+            {
+                "id": 1,
+                "request":
+                {
+                    "handle": "uint64",
+                    "data": "template"
+                },
+                "response":
+                {
+                    "handle": "uint64"
+                }
+            },
+            "commit_update":
+            {
+                "id": 2,
+                "request":
+                {
+                    "handle": "uint64"
+                },
+                "response":
+                {
+                }
+            },
+            "rollback_update":
+            {
+                "id": 3,
+                "request":
+                {
+                    "handle": "uint64"
+                },
+                "response":
+                {
+                }
+            },
+            "fetch_data":
+            {
+                "id": 4,
+                "request":
+                {
+                    "handle": "uint64",
+                    "min_key": "string",
+                    "max_key": "string",
+                    "ushard": "uint32"
+                },
+                "response":
+                {
+                    "handle": "uint64",
+                    "data": "template"
+                }
+            },
+            "abort_fetch":
+            {
+                "id": 5,
+                "request":
+                {
+                    "handle": "uint64"
+                },
+                "response":
+                {
+                }
+            },
+            "snapshot":
+            {
+                "id": 6,
+                "request":
+                {
+                    "collection": "string",
+                    "ushard": "uint32"
+                },
+                "response":
+                {
+                    "snapshot": "template"
+                }
+            }
+        }
+    }
+}

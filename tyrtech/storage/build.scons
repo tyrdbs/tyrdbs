@@ -1,0 +1,15 @@
+Import('env')
+Import('BUILD_DIR')
+
+
+storage_sources = [
+    'cache.cpp',
+    'disk.cpp',
+    'disk_reader.cpp',
+    'disk_writer.cpp',
+    'engine.cpp',
+    'file_reader.cpp',
+    'file_writer.cpp'
+]
+
+env.StaticLibrary(target='{0}/storage'.format(BUILD_DIR), source=storage_sources)

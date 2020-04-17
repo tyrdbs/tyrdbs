@@ -1,0 +1,21 @@
+{
+    "tyrtech::net::service":
+    {
+        "error":
+        {
+            "code": "int16",
+            "message": "string"
+        },
+        "request":
+        {
+            "module": "uint16#",
+            "function": "uint16#",
+            "message": "template"
+        },
+        "response":
+        {
+            "error": "error",
+            "message": "template"
+        }
+    }
+}

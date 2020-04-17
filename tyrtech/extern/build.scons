@@ -1,0 +1,20 @@
+Import('env')
+Import('PROJECT_DIR')
+Import('BUILD_DIR')
+
+
+env.Append(CPPPATH=':{0}/tyrtech/extern'.format(PROJECT_DIR))
+
+
+extern_sources = [
+    'crc32c.c',
+    'gtswitch.s',
+    'lz4.c',
+    'fmt/format.cc',
+    'doctest/parts/doctest.cpp',
+    'tdigest.c',
+    Glob('rpmalloc/*.c'),
+    Glob('argtable3/*.c')
+]
+
+env.StaticLibrary(target='{0}/extern'.format(BUILD_DIR), source=extern_sources)

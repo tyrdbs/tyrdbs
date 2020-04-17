@@ -1,0 +1,8 @@
+Import('env')
+Import('BUILD_DIR')
+
+
+net_sources = [
+]
+
+env.StaticLibrary(target='{0}/net'.format(BUILD_DIR), source=net_sources)

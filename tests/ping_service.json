@@ -1,0 +1,13 @@
+{
+    "includes":
+    [
+        "tests/ping_module.json.h"
+    ],
+    "tests":
+    {
+        "ping_service":
+        [
+            "ping"
+        ]
+    }
+}

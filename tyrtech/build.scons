@@ -1,0 +1,21 @@
+Import('env')
+Import('PROJECT_DIR')
+Import('BUILD_DIR')
+
+
+env.Append(CPPPATH=':{0}/tyrtech'.format(PROJECT_DIR))
+env.Append(LIBPATH=':{0}'.format(BUILD_DIR))
+
+
+scripts = [
+    'extern/build.scons',
+    'common/build.scons',
+    'gt/build.scons',
+    'net/build.scons',
+    'io/build.scons',
+    'message/build.scons',
+    'storage/build.scons',
+    'tyrdbs/build.scons'
+]
+
+env.SConscript(scripts, must_exist=1)

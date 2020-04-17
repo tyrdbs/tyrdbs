@@ -1,0 +1,14 @@
+{
+    "tests":
+    {
+        "slice":
+        {
+            "extents": ["uint64"]
+        },
+        "snapshot":
+        {
+            "path": "string",
+            "slices": ["slice"]
+        }
+    }
+}
