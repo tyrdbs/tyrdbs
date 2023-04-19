@@ -1,3 +1,5 @@
+**NOTE** This project moved to [source hut](https://git.sr.ht/~tyrtech/tyrdbs).
+
 About
 ====
 
